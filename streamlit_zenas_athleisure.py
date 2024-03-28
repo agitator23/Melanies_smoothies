@@ -6,7 +6,7 @@ from snowflake.snowpark.functions import col
 import requests
 
 # Write directly to the app
-st.title(":Zena's Amazing Athleisure Catalog")
+st.title("Zena's Amazing Athleisure Catalog")
 st.write(
     "Pick a sweatsuit color or style"
 )

@@ -23,38 +23,34 @@ pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
 st.stop
 
-ingredients_list = st.multiselect(
-    'Choose up to 5 ingredients'
+v_selected_color = st.multiselect(
+    'Pick a sweatsuit color or style'
     , my_dataframe
-    , max_selections = 5
+    , max_selections = 1
 )
 
-if ingredients_list:
+if v_selected_color:
     #st.write('You selected:', ingredients_list)
     #st.text(ingredients_list)
 
-    ingredients_string = ''
+    #ingredients_string = ''
 
-    for fruit_chosen in ingredients_list:
-        ingredients_string += fruit_chosen + ' '
+    #for fruit_chosen in ingredients_list:
+        #ingredients_string += fruit_chosen + ' '
 
-        search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
-        st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
+    v_price = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'PRICE'].iloc[0]
+    v_image_URL = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'DIRECT_URL'].iloc[0]
+    v_sizes = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'SIZE_LIST'].iloc[0]
+    v_upsell = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'UPSELL_PRODUCT_DESC'].iloc[0]
+        #st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
 
-        st.subheader(fruit_chosen + ' Nutrition Information')
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
-        fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
-        
-    st.write('string is', ingredients_string)
+        #st.subheader(fruit_chosen + ' Nutrition Information')
+        #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
+        #fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
 
-    my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
-            values ('""" + ingredients_string + """', '""" + name_on_order + """')"""
+    st.write(v_image_URL)
 
-    st.write(my_insert_stmt)
-    time_to_insert = st.button('Submit Order')
-
-    if time_to_insert:
-        session.sql(my_insert_stmt).collect()
-#        st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="âœ…")
-        st.success('Your Smoothie is ordered, ' + name_on_order + '!')
+    st.write('Price:  ', v_price)
+    st.write('Sizes available:  ', v_sizes)
+    st.write(v_upsell)
 

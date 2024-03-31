@@ -16,7 +16,7 @@ st.write(
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("zenas_athleisure_db.products.catalog_for_website").select().sort(col('color_or_style'))
+my_dataframe = session.table("zenas_athleisure_db.products.catalog_for_website").sort(col('color_or_style'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
 pd_df = my_dataframe.to_pandas()

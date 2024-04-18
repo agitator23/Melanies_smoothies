@@ -41,13 +41,15 @@ if v_selected_color:
     v_image_URL = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'DIRECT_URL'].iloc[0]
     v_sizes = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'SIZE_LIST'].iloc[0]
     v_upsell = pd_df.loc[pd_df['COLOR_OR_STYLE'] == v_selected_color, 'UPSELL_PRODUCT_DESC'].iloc[0]
+    v_caption = 'Our warn, comfortable, ' + v_selected_color + ' sweatsuit!'
+    
         #st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
 
         #st.subheader(fruit_chosen + ' Nutrition Information')
         #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
         #fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
 
-    st.image(v_image_URL, caption = 'Our warn, comfortable, ', v_selected_color, ' sweatsuit!')
+    st.image(v_image_URL, caption = v_caption)
 
     st.write('Price:  ', v_price)
     st.write('Sizes available:  ', v_sizes)

@@ -21,7 +21,7 @@ my_dataframe = session.table("zenas_athleisure_db.products.catalog_for_website")
 
 pd_df = my_dataframe.to_pandas()
 #st.dataframe(pd_df)
-st.stop
+#st.stop
 
 v_selected_color = st.selectbox(
     'Pick a sweatsuit color or style'

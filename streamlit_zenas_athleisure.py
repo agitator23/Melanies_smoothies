@@ -20,7 +20,7 @@ my_dataframe = session.table("zenas_athleisure_db.products.catalog_for_website")
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
 pd_df = my_dataframe.to_pandas()
-st.dataframe(pd_df)
+#st.dataframe(pd_df)
 st.stop
 
 v_selected_color = st.selectbox(
@@ -47,7 +47,7 @@ if v_selected_color:
         #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
         #fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
 
-    st.image(v_image_URL)
+    st.image(v_image_URL, caption = 'Our warn, comfortable, ', v_selected_color, ' sweatsuit!')
 
     st.write('Price:  ', v_price)
     st.write('Sizes available:  ', v_sizes)

@@ -47,7 +47,7 @@ if v_selected_color:
         #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
         #fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
 
-    st.write(v_image_URL)
+    st.image(v_image_URL)
 
     st.write('Price:  ', v_price)
     st.write('Sizes available:  ', v_sizes)

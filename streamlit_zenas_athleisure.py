@@ -7,9 +7,6 @@ import requests
 
 # Write directly to the app
 st.title("Zena's Amazing Athleisure Catalog")
-st.write(
-    "Pick a sweatsuit color or style"
-)
 
 #name_on_order = st.text_input('Name on smoothie', '')
 #st.write('The name on your smoothie will be', name_on_order)
@@ -51,7 +48,7 @@ if v_selected_color:
 
     st.image(v_image_URL, caption = v_caption)
 
-    st.write('Price:  ', v_price)
+    st.write('Price:  $', v_price)
     st.write('Sizes available:  ', v_sizes)
     st.write(v_upsell)
 

@@ -23,10 +23,9 @@ pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
 st.stop
 
-v_selected_color = st.multiselect(
+v_selected_color = st.selectbox(
     'Pick a sweatsuit color or style'
     , my_dataframe
-    , max_selections = 1
 )
 
 if v_selected_color:
